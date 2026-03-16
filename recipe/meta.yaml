@@ -13,20 +13,14 @@ build:
   entry_points:
     - insightface-cli=insightface.commands.insightface_cli:main
   script: {{ PYTHON }} -m pip install . -vv
-  number: 4
-  skip: True  # [win]
+  number: 5
+  skip: true  # [win]
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
-    - {{ cdt('mesa-libgl-devel') }}  # [linux]
-    - {{ cdt('mesa-dri-drivers') }}  # [linux]
-    - {{ cdt('libselinux') }}  # [linux]
-    - {{ cdt('libxdamage') }}  # [linux]
-    - {{ cdt('libxxf86vm') }}  # [linux]
-    - {{ cdt('libxext') }}     # [linux]
   host:
     - python
     - setuptools
@@ -34,6 +28,7 @@ requirements:
     - cython
     - pypandoc
     - pip
+    - libgl-devel                    # [linux]
   run:
     - python
     - onnx
