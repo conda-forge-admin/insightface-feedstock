@@ -1,5 +1,5 @@
 {% set name = "insightface" %}
-{% set version = "0.7.3" %}
+{% set version = "1.0.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,13 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/insightface-{{ version }}.tar.gz
-  sha256: f191f719612ebb37018f41936814500544cd0f86e6fcd676c023f354c668ddf7
+  sha256: 27af24891bbba470cb3573b366a0fcca8989fc8503c9f8f281e8cba6fd716075
 
 build:
   entry_points:
     - insightface-cli=insightface.commands.insightface_cli:main
   script: {{ PYTHON }} -m pip install . -vv
-  number: 5
+  number: 0
   skip: true  # [win]
 
 requirements:
